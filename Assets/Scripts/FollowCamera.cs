@@ -6,6 +6,7 @@ public class FollowCamera : MonoBehaviour
 {
     public Transform player;
     public float posX, posY;
+    public Vector3 offset = new Vector3(0f, 7.5f, 0f);
     // Use this for initialization
     void Start()
     {
@@ -15,15 +16,12 @@ public class FollowCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //limite direita 572 
+        //limete esquerda -572
         posX = transform.position.x;
         posY = transform.position.y;
-        transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+        if( ( player.transform.position.x > -572F ) && ( player.transform.position.x < 572f))
+            transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
     }
 
-   /* void OnCollisionEnter2D(Collision2D col)
-    {
-        if (!col.gameObject.CompareTag("Player"))
-            Destroy(col.gameObject);
-
-    }*/
 }

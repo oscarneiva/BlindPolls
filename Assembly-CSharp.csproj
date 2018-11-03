@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\FollowCamera.cs" />
+    <Compile Include="Assets\Scripts\PlayerBondaryCollisions.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/joaom/porcos/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
