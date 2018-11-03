@@ -62,7 +62,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\FollowCamera.cs" />
+    <Compile Include="Assets\Scripts\ground.cs" />
+    <Compile Include="Assets\Scripts\Municao.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerBondaryCollisions.cs" />
+    <Compile Include="Assets\Scripts\Spawn.cs" />
+    <Compile Include="Assets\Scripts\SpawnPos.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/joaom/porcos/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
