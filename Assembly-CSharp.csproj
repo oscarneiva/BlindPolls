@@ -61,6 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Delete.cs" />
+    <Compile Include="Assets\Scripts\DeleteBondaryCollisions.cs" />
     <Compile Include="Assets\Scripts\FollowCamera.cs" />
     <Compile Include="Assets\Scripts\ground.cs" />
     <Compile Include="Assets\Scripts\Municao.cs" />
