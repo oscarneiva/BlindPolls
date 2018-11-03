@@ -9,7 +9,7 @@ public class SpawnPos : MonoBehaviour {
     void Start () {
         myCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         xSpawn = myCamera.ScreenToWorldPoint(new Vector3(Screen.width, 0f, 0f)).x;
-        xSpawn = (xSpawn + 25);
+        xSpawn = (xSpawn + 55);
         if (transform.position.x < 0f)
             xSpawn *= -1f;
         transform.position = new Vector3(xSpawn, transform.position.y, transform.position.z);

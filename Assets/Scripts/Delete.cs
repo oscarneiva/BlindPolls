@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Delete : MonoBehaviour {
 
-    void OnTriggerExit2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
+       
         if (col.gameObject.CompareTag("Delete"))
             Destroy(gameObject);           
     }

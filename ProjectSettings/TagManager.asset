@@ -7,6 +7,12 @@ TagManager:
   - ground
   - Spawn
   - Delete
+  - Finish_left
+  - Finish_right
+  - trash
+  - eniammo
+  - InimigoS
+  - Inimigo
   layers:
   - Default
   - TransparentFX
@@ -16,10 +22,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerCollider
+  - EnemiesCollider
+  - Delete
+  - drone colider
   - 
   - 
   - 
