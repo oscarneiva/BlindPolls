@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Ammo.cs" />
     <Compile Include="Assets\Scripts\AmmoT.cs" />
+    <Compile Include="Assets\Scripts\Controla_moedas.cs" />
     <Compile Include="Assets\Scripts\Controle_canvas.cs" />
     <Compile Include="Assets\Scripts\Delete.cs" />
     <Compile Include="Assets\Scripts\DeleteBondaryCollisions.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\Scripts\ground.cs" />
     <Compile Include="Assets\Scripts\InimigoS.cs" />
     <Compile Include="Assets\Scripts\InimigoT.cs" />
+    <Compile Include="Assets\Scripts\Moeda.cs" />
     <Compile Include="Assets\Scripts\Municao.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerBondaryCollisions.cs" />

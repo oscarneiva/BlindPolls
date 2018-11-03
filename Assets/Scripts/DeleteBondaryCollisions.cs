@@ -18,4 +18,10 @@ public class DeleteBondaryCollisions : MonoBehaviour
             xSpawn = xSpawn * -1f;
         transform.position = new Vector3(xSpawn, transform.position.y, transform.position.z);
     }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.CompareTag("ground") == false)
+        Destroy(col.gameObject);
+    }
 }
