@@ -50,6 +50,7 @@ public class InimigoT : MonoBehaviour
 		{
 			podeMover = true;
 
+
 		}
 
 		if (gameObject.transform.position.x - player_pos.x > 0)

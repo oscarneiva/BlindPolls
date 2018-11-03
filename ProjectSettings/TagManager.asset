@@ -13,6 +13,7 @@ TagManager:
   - eniammo
   - InimigoS
   - Inimigo
+  - enemies
   layers:
   - Default
   - TransparentFX
