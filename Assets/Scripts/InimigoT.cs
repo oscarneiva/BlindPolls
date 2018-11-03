@@ -14,13 +14,16 @@ public class InimigoT : MonoBehaviour
 	private GameObject player;
 	private Vector3 player_pos;
 	public Rigidbody2D inirb;
+    public Animator animator;
 	public bool podeMover = true;
 
 	// Use this for initialization
 	void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
-	}
+        animator = gameObject.GetComponent<Animator>();
+
+    }
 
 	// Update is called once per frame
 	void Update()
@@ -56,12 +59,14 @@ public class InimigoT : MonoBehaviour
 		if (gameObject.transform.position.x - player_pos.x > 0)
 		{
 			esquerda = true;
+            animator.SetBool("left", true);
 		}
 
 		if (gameObject.transform.position.x - player_pos.x < 0)
 		{
 			esquerda = false;
-		}
+            animator.SetBool("left", false);
+        }
 
 	}
 	private float RandomGenerate()

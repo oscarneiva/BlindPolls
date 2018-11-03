@@ -59,7 +59,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1180107143656006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 92.6, y: 171.8, z: -0.04}
+  m_LocalPosition: {x: 114.2, y: 149.5, z: -0.04}
   m_LocalScale: {x: 8.9187565, y: 8.9187565, z: 8.9187565}
   m_Children:
   - {fileID: 4373146330371036}
@@ -226,6 +226,7 @@ MonoBehaviour:
   alvo: {fileID: 0}
   distancia: 12
   distAtack: 10
+  flutuation: 10
   direita: 1
 --- !u!114 &114962145361736284
 MonoBehaviour:
@@ -318,7 +319,7 @@ PlatformEffector2D:
     serializedVersion: 2
     m_Bits: 55
   m_RotationalOffset: 0
-  m_UseOneWay: 1
+  m_UseOneWay: 0
   m_UseOneWayGrouping: 0
   m_SurfaceArc: 360
   m_UseSideFriction: 0
