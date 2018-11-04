@@ -11,6 +11,7 @@ public class Player : MonoBehaviour {
     public GameObject municao_dir;
     public GameObject municao_esq;
     public GameObject explosao;
+    public GameObject pe;
 
     private GameObject ground;
 
@@ -213,6 +214,7 @@ public class Player : MonoBehaviour {
             //gameObject.transform.Translate(0, 1.0f, 0);
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 40.0f;
             jump = true;
+            pe.SendMessage("checa");
             checa_animacao();
         }
     }
@@ -252,13 +254,9 @@ public class Player : MonoBehaviour {
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.00001f;
             gameObject.transform.Translate(0, 0.3f, 0);
             jump = false;
+            pe.SendMessage("checa");
         }
 
-        if(collision.gameObject.tag == "cabeca")
-        {
-            collision.gameObject.SendMessage("acertou");
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 8000.0f));
-        }
 
         if(collision.gameObject.tag == "Finish_left")
         {

@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\InimigoT.cs" />
     <Compile Include="Assets\Scripts\Moeda.cs" />
     <Compile Include="Assets\Scripts\Municao.cs" />
+    <Compile Include="Assets\Scripts\Pe.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerBondaryCollisions.cs" />
     <Compile Include="Assets\Scripts\Shooting.cs" />

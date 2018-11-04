@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cabeca : MonoBehaviour {
 
     public GameObject parent;
+    public GameObject explosao;
 
 	// Use this for initialization
 	void Start () {
@@ -15,11 +16,18 @@ public class Cabeca : MonoBehaviour {
 		
 	}
 
+    public void destroi()
+    {
+        acertou();
+    }
+
     public void acertou()
     {
         Destroy(parent, 0.15f);
-        
+
         //INSTANCIAR A EXPLOSAO AQUI DE ACORDO COM ESSA POSICAO
+        GameObject nova_explosao = Instantiate(explosao, gameObject.transform.position, gameObject.transform.rotation);
+        Destroy(nova_explosao, 1.0f);
 
         Destroy(gameObject);
     }

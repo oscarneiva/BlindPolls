@@ -32,6 +32,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1953158831356320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4471942501681782}
+  - component: {fileID: 61657093821445442}
+  - component: {fileID: 114563994628107186}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: pe
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4471942501681782
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1953158831356320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4645349303173256}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4645349303173256
 Transform:
   m_ObjectHideFlags: 1
@@ -39,9 +69,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1246930819649118}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 64.6, z: 0}
+  m_LocalPosition: {x: 0, y: 50.1, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 4471942501681782}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -58,8 +89,8 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 9.8
+  m_AngularDrag: 10
+  m_GravityScale: 15
   m_Material: {fileID: 0}
   m_Interpolate: 1
   m_SleepingMode: 1
@@ -71,7 +102,7 @@ CircleCollider2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1246930819649118}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -92,7 +123,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12, y: 0.86}
+  m_Offset: {x: 0.120000005, y: 0.17304468}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -103,7 +134,32 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.49, y: 6.81}
+  m_Size: {x: 3.49, y: 7.8639107}
+  m_EdgeRadius: 0
+--- !u!61 &61657093821445442
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1953158831356320}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.04460895, y: -3.2341394}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.7285376, y: 2.3828735}
   m_EdgeRadius: 0
 --- !u!95 &95348336800353046
 Animator:
@@ -123,6 +179,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114563994628107186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1953158831356320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d69820f41ea182644860ed45bbbf6ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 1246930819649118}
 --- !u!114 &114633637413294782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -134,14 +202,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915847e2373f4f04782f20142e034718, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  municao_dir: {fileID: 0}
-  municao_esq: {fileID: 0}
+  municao_dir: {fileID: 1487947318403978, guid: 57dee780b64b5fa4b8ce0bc192befa4d,
+    type: 2}
+  municao_esq: {fileID: 1257980617182656, guid: e562240a800538f4c8b5cf73cd27a459,
+    type: 2}
   explosao: {fileID: 0}
+  pe: {fileID: 1953158831356320}
   lim_dir: 0
   lim_esq: 0
   lim_cima: 0
   lim_baixo: 0
-  vel_pers_hor: 90
+  vel_pers_hor: 80
   vel_pers_ver: 70
   vel_fly: 40
   vel_tiro: 1

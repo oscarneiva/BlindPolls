@@ -16,6 +16,7 @@ public class InimigoT : MonoBehaviour
 	public Rigidbody2D inirb;
     public Animator animator;
 	public bool podeMover = true;
+    public GameObject cabeca;
 
 	// Use this for initialization
 	void Start()
@@ -83,6 +84,11 @@ public class InimigoT : MonoBehaviour
 		
 		return vl;
 	}
+
+    public void destroi()
+    {
+        Destroy(gameObject);
+    }
 
 
 }

@@ -6,7 +6,7 @@ public class Municao : MonoBehaviour {
 
     public bool olha_dir;
 
-    private float vel = 10.0f;
+    private float vel = 8.0f;
     private float set = 4.0f;
 
 	// Use this for initialization
@@ -26,5 +26,14 @@ public class Municao : MonoBehaviour {
         gameObject.transform.Translate(vel, 0, 0);
 	}
 
-    
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        print("COLIDIU O TIRO");
+        if(collision.gameObject.tag == "Inimigo")
+        {
+            collision.gameObject.SendMessage("destroi");
+            Destroy(gameObject);
+        }
+    }
+
 }

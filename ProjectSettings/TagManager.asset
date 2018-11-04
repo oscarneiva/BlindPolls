@@ -15,6 +15,7 @@ TagManager:
   - Inimigo
   - enemies
   - cabeca
+  - pe
   layers:
   - Default
   - TransparentFX
