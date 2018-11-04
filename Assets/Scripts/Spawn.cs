@@ -14,6 +14,7 @@ public class Spawn : MonoBehaviour {
     public float wait;
     public GameObject drone;
     public GameObject sheep;
+    public GameObject lhama;
     public GameObject direitaDrone, esquerdaDrone;
     private GameObject drone_correto;
     //public GameObject lhama;
@@ -41,8 +42,7 @@ public class Spawn : MonoBehaviour {
                 }
                 else
                 {
-                    print("AQUI.........");
-                    //cria_lhama();
+                    cria_lhama();
                 }
             }
             tempo = 0;
@@ -69,6 +69,26 @@ public class Spawn : MonoBehaviour {
         count++;
     }
 
+    public void cria_lhama()
+    {
+        Vector3 posicao;
+        random = Random.Range(0, 2);
+        if (random == 1)
+        {
+            posicao = new Vector3(esquerda_camera.transform.position.x,
+                lhama.transform.position.y, 0);
+        }
+        else
+        {
+            posicao = direita_camera.transform.position;
+            posicao = new Vector3(direita_camera.transform.position.x,
+                lhama.transform.position.y, 0);
+        }
+
+        GameObject novo_drone = Instantiate(lhama, posicao, drone.transform.rotation);
+        count++;
+    }
+
     public void cria_drone()
     {
         Vector3 posicao;
@@ -77,13 +97,13 @@ public class Spawn : MonoBehaviour {
         if (random == 1)
         {
             posicao = new Vector3(esquerda_camera.transform.position.x,
-                132.3f, 0);
+                155.0f, 0);
             drone_correto = esquerdaDrone;
         }
         else
         {
             posicao = new Vector3(direita_camera.transform.position.x,
-                132.3f, 0);
+                155.0f, 0);
             drone_correto = direitaDrone;
         }
 

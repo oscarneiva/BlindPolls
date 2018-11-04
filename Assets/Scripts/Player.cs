@@ -91,7 +91,19 @@ public class Player : MonoBehaviour {
         pos_player = gameObject.transform.position;
 
         checa_teto();
+
+        //porta_dos_desesperados();
     }
+
+    
+    public void porta_dos_desesperados()
+    {
+        if(jump && (gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)){
+            print("OICEOHEUOHOURHVOUEHVHOIEHIOVEORVEBV");
+            gameObject.transform.Translate(0, -1.0f, 0);
+        }
+    }
+    
 
     public void checa_teto()
     {
@@ -144,7 +156,7 @@ public class Player : MonoBehaviour {
 
     public void especial()
     {
-        if(gameObject.transform.position.y < (ground.transform.position.y + 300.0f))
+        if(gameObject.transform.position.y < (ground.transform.position.y + 150.0f))
         {
             print("aqui");
             print(gameObject.transform.position.y);
@@ -152,13 +164,13 @@ public class Player : MonoBehaviour {
         }
         else
         {
-            if (tempo_especial > 1.5f)
+            if (tempo_especial > 1.0f)
             {
                 fly = false;
                 checa_animacao();
                 //INSTANCIAR EFEITO DE ESPECIAL AQUI
                 //DESTRUIR TODOS OS INIMIGOS AQUI
-                gameObject.GetComponent<Rigidbody2D>().gravityScale = 4.3f;
+                gameObject.GetComponent<Rigidbody2D>().gravityScale = 9.8f;
                 inimigos_derrotados = 0;
             }
             else
@@ -193,7 +205,7 @@ public class Player : MonoBehaviour {
     public void checa_speed()
     {
         tempo += Time.deltaTime;
-        if (tempo > 2.0f)
+        if (tempo > 8.0f)
         {
             tempo = 0;
             speed = false;
@@ -210,10 +222,10 @@ public class Player : MonoBehaviour {
     //DETECTA A AÇÃO DE USAR O ESPECIAL E, CASO HABILITADO, CHAMA
     public void special_pressed()
     {
-        if (Input.GetKeyDown(KeyCode.W) && (!jump) && (inimigos_derrotados >= 10) && (!fly))
+        if (!fly)
         {
             fly = true;
-            inimigos_derrotados = 0;
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             checa_animacao();
         }
     }
@@ -223,9 +235,18 @@ public class Player : MonoBehaviour {
     {
         if (!jump && (Input.GetKeyDown(KeyCode.Space)) && !fly)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 17500.0f));
-            //gameObject.transform.Translate(0, 1.0f, 0);
-            gameObject.GetComponent<Rigidbody2D>().gravityScale = 40.0f;
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            if (speed)
+            {
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 26000.0f));
+                gameObject.GetComponent<Rigidbody2D>().gravityScale = 60.0f;
+            }
+            else
+            {
+                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 13000.0f));
+                //gameObject.transform.Translate(0, 1.0f, 0);
+                gameObject.GetComponent<Rigidbody2D>().gravityScale = 30.0f;
+            }
             jump = true;
             pe.SendMessage("checa");
             checa_animacao();
@@ -254,17 +275,15 @@ public class Player : MonoBehaviour {
         checa_animacao();
 
         jump_pressed();
-
-        special_pressed();
-
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        print("ALOU");
         if(collision.gameObject.tag == "ground")
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.00001f;
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.01f;
             gameObject.transform.Translate(0, 0.3f, 0);
             jump = false;
             pe.SendMessage("checa");
