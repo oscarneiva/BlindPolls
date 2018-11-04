@@ -66,7 +66,7 @@ public class Controle_canvas : MonoBehaviour {
         else
         {
             //BARRA VIDA 0%
-            gameover.gameObject.SetActive(ativo);
+            //gameover.gameObject.SetActive(ativo);
             
         }
     }

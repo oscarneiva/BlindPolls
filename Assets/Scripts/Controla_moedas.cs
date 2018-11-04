@@ -37,7 +37,7 @@ public class Controla_moedas : MonoBehaviour {
             {
                 if (count < max)
                 {
-                    random = Random.Range(1, 3);
+                    random = Random.Range(1, 20);
                     if (random == 2)
                     {
                         print("POSTER");

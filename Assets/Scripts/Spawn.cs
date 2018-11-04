@@ -11,7 +11,9 @@ public class Spawn : MonoBehaviour {
     public GameObject esquerda_camera;
     public GameObject direita_camera;
     public int max;
-    public float wait;
+    private float wait = 5;
+    private float tempo_aumenta_spaw = 0;
+    private bool aumenta_spaw = false;
     public GameObject drone;
     public GameObject sheep;
     public GameObject lhama;
@@ -32,25 +34,47 @@ public class Spawn : MonoBehaviour {
         vetor_inimigo = GameObject.FindGameObjectsWithTag("Inimigo");
         count = vetor_inimigo.Length;
         tempo += Time.deltaTime;
+
+        tempo_aumenta_spaw += Time.deltaTime;
+        
         if (tempo >= wait)
         {
             if ((count < max) && andar)
             {
-                random = Random.Range(0, 3);
-                if(random == 0)
+                random = Random.Range(0, 5);
+                if(random <= 1)
                 {
                     cria_drone();
                 }
+                /*
                 else if(random == 1)
-                {
-                    cria_ovelha();
-                }
-                else
                 {
                     //cria_lhama();
                 }
+                */
+                else
+                {
+                    cria_ovelha();
+                }
             }
             tempo = 0;
+        }
+
+        if(tempo_aumenta_spaw >= 20.0f)
+        {
+            if (!aumenta_spaw)
+            {
+                wait = 3;
+                aumenta_spaw = true;
+                tempo_aumenta_spaw = 0;
+            }
+            else
+            {
+                wait = 1;
+                aumenta_spaw = true;
+                tempo_aumenta_spaw = 0;
+            }
+            
         }
     }
 

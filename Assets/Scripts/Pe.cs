@@ -29,7 +29,7 @@ public class Pe : MonoBehaviour {
         {
             collision.gameObject.SendMessage("acertou");
 
-            parent.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 8000.0f));
+            parent.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 4000.0f));
         }
     }
 }

@@ -301,22 +301,11 @@ public class Player : MonoBehaviour {
     //DETECTA A AÇÃO DE PULO E CONFIGURA OS PARAMETROS NECESSÁRIOS
     public void jump_pressed()
     {
-        if (!jump && (Input.GetKeyDown(KeyCode.Space)) && !fly)
+        if (!jump && (Input.GetKeyDown(KeyCode.W)) && !fly)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-            /*
-            if (speed)
-            {
-                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 26000.0f));
-                gameObject.GetComponent<Rigidbody2D>().gravityScale = 60.0f;
-            }
-            else
-            {
-            */
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 13000.0f));
-                //gameObject.transform.Translate(0, 1.0f, 0);
-            gameObject.GetComponent<Rigidbody2D>().gravityScale = 30.0f;
-           // }
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 20000.0f));
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 90.0f;
             jump = true;
             pe.SendMessage("checa");
             checa_animacao();
@@ -328,14 +317,14 @@ public class Player : MonoBehaviour {
         move = false;
 
         //MOVE DIREITA
-        if (Input.GetKey(KeyCode.RightArrow) && (!fly))
+        if (Input.GetKey(KeyCode.D) && (!fly))
         {
             gameObject.transform.Translate(vel_pers_hor * Time.deltaTime, 0, 0);
             olhando_dir = true;
             move = true;
         }
         //MOVE ESQUERDA
-        if (Input.GetKey(KeyCode.LeftArrow) && (!fly))
+        if (Input.GetKey(KeyCode.A) && (!fly))
         {
             gameObject.transform.Translate(-vel_pers_hor * Time.deltaTime, 0, 0);
             olhando_dir = false;
@@ -377,7 +366,7 @@ public class Player : MonoBehaviour {
 
     public void instancia_tiro()
     {
-        if (Input.GetKeyDown(KeyCode.Q) && (tiro))
+        if (Input.GetKeyDown(KeyCode.Space) && (tiro))
         {
             quant_tiros--;
             if (olhando_dir)
