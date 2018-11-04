@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 61027680762039156}
   - component: {fileID: 251817344771636236}
   - component: {fileID: 114561319244160672}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Ovelha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,6 +103,7 @@ MonoBehaviour:
   inirb: {fileID: 0}
   animator: {fileID: 0}
   podeMover: 1
+  cabeca: {fileID: 0}
 --- !u!212 &212820669199419822
 SpriteRenderer:
   m_ObjectHideFlags: 1

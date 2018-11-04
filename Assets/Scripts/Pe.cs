@@ -6,6 +6,7 @@ public class Pe : MonoBehaviour {
 
     public GameObject parent;
     private bool ok = true;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,7 @@ public class Pe : MonoBehaviour {
         if ((collision.gameObject.tag == "cabeca") && ok)
         {
             collision.gameObject.SendMessage("acertou");
+
             parent.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 8000.0f));
         }
     }

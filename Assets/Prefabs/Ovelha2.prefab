@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 61499209930472536}
   - component: {fileID: 251641620910338674}
   - component: {fileID: 114032805999996084}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Ovelha2
-  m_TagString: Untagged
+  m_TagString: Inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4871340400495248}
   - component: {fileID: 61488308017118508}
   - component: {fileID: 114813144283862146}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: cabeca
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.041098595, y: -0.86307526}
   m_SpriteTilingProperty:

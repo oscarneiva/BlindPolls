@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
     public GameObject municao_esq;
     public GameObject explosao;
     public GameObject pe;
-
+    private GameObject teto;
     private GameObject ground;
 
     //VARIAVEIS DE CONTROLE DE POSICIONAMENTO E MOVIMENTAÇÃO DO PLAYER
@@ -49,11 +49,13 @@ public class Player : MonoBehaviour {
     private float tempo_especial = 0;
     private int vida = 5;
     private int inimigos_derrotados = 10;
+    private int life = 10;
 
     // Use this for initialization
     void Start () {
         anima = gameObject.GetComponent<Animator>();
         ground = GameObject.FindGameObjectWithTag("ground");
+        teto = GameObject.FindGameObjectWithTag("teto");
         move = false;
         olhando_dir = true;
         jump = true;
@@ -87,6 +89,17 @@ public class Player : MonoBehaviour {
 
         //TEM QUE FICAR NO FINAL DO GAME LOOP 
         pos_player = gameObject.transform.position;
+
+        checa_teto();
+    }
+
+    public void checa_teto()
+    {
+        if(pos_player.y >= teto.gameObject.transform.position.y)
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            gameObject.transform.Translate(0, -2.0f, 0);
+        }
     }
 
     public void checa_animacao()
@@ -257,6 +270,11 @@ public class Player : MonoBehaviour {
             pe.SendMessage("checa");
         }
 
+        if(collision.gameObject.tag == "teto")
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            gameObject.transform.Translate(0, -0.3f, 0);
+        }
 
         if(collision.gameObject.tag == "Finish_left")
         {
@@ -281,6 +299,15 @@ public class Player : MonoBehaviour {
             {
                 GameObject novo_tiro = Instantiate(municao_esq, transform.position, transform.rotation);
             }
+        }
+    }
+
+    public void hit()
+    {
+        print("LIFE = " + life);
+        if(life > 0)
+        {
+            life--;
         }
     }
 

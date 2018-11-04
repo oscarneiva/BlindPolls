@@ -37,9 +37,9 @@ public class Moeda : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.CompareTag("Player"))
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             player.SendMessage("carrega_tiro");

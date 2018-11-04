@@ -40,7 +40,7 @@ public class InimigoT : MonoBehaviour
 			}
 			else
 			{
-                animator.SetBool("esquerda", true);
+                animator.SetBool("esquerda", false);
                 transform.Translate(speed *vrd* Time.deltaTime, 0, 0);
 			}
 		}
@@ -90,6 +90,15 @@ public class InimigoT : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.SendMessage("hit");
+            destroi();
+        }
+    }
 
 }
 

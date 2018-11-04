@@ -16,6 +16,7 @@ TagManager:
   - enemies
   - cabeca
   - pe
+  - teto
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - Moeda
   - Sheep
   - Ground
-  - 
+  - Tiro
   - 
   - 
   - 
