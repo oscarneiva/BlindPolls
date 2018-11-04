@@ -41,8 +41,8 @@ public class Moeda : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player")
         {
-            print("u cant touch me");
-            //ADICIONA PONTUAÇÃO
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.SendMessage("carrega_tiro");
             destruir();
         }
     }

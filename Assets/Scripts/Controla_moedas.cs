@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Controla_moedas : MonoBehaviour {
 
-    //MOEDA
-    public GameObject moeda;
-
     //CONTADORES
-    private int max = 15;
     private int count = 0;
     private float tempo = 0;
 
+    //MOEDA
+    public GameObject moeda;
+
     //SPANW POINTS
+    public int max;
     public Transform direita_camera;
     public Transform esqueda_camera;
     public Transform dentro_camera;

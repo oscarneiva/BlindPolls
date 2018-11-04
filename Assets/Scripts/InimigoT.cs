@@ -22,7 +22,6 @@ public class InimigoT : MonoBehaviour
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
         animator = gameObject.GetComponent<Animator>();
-
     }
 
 	// Update is called once per frame
@@ -35,12 +34,13 @@ public class InimigoT : MonoBehaviour
 			
 			if (esquerda)
 			{
-
+                animator.SetBool("esquerda", true);
 				transform.Translate(-speed *vrd* Time.deltaTime, 0, 0);
 			}
 			else
 			{
-				transform.Translate(speed *vrd* Time.deltaTime, 0, 0);
+                animator.SetBool("esquerda", true);
+                transform.Translate(speed *vrd* Time.deltaTime, 0, 0);
 			}
 		}
 

@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Ammo.cs" />
     <Compile Include="Assets\Scripts\AmmoT.cs" />
+    <Compile Include="Assets\Scripts\Cabeca.cs" />
     <Compile Include="Assets\Scripts\Controla_moedas.cs" />
     <Compile Include="Assets\Scripts\Controle_canvas.cs" />
     <Compile Include="Assets\Scripts\Delete.cs" />

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 95602685490479888}
   - component: {fileID: 61814730703277182}
   - component: {fileID: 114010604287750006}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Moeda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1172677358432842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 66.3, y: 40.1, z: 0}
+  m_LocalPosition: {x: 67.93497, y: 136.63315, z: 0}
   m_LocalScale: {x: 18, y: 18, z: 3}
   m_Children: []
   m_Father: {fileID: 0}

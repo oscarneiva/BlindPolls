@@ -10,18 +10,16 @@ public class FlyScrpt : MonoBehaviour {
 	public Transform alvo;
 	public float distancia = 12.0f;
 	public float distAtack = 10.0f;
-    public float flutuation = 10f; 
-	public bool direita;
+    public float flutuation = 10f;
+ 
 	
 	
 	// Use this for initialization
 	void Start () {
         alvo = GameObject.FindGameObjectWithTag("Player").transform;
-
-		if (!direita)
-		{
+        if(transform.position.x>alvo.transform.position.x)
 			speed = -speed;
-		}
+ 
 	}
 	
 	// Update is called once per frame
@@ -29,7 +27,8 @@ public class FlyScrpt : MonoBehaviour {
 		
 
 	//	transform.LookAt(alvo.position);
-		transform.Translate(-speed*Time.deltaTime,(float) Math.Sin(transform.position.x/50)*Time.deltaTime*flutuation, 0);
+    
+		transform.Translate(speed*Time.deltaTime,(float) Math.Sin(transform.position.x/50)*Time.deltaTime*flutuation, 0);
 		
 	
 	

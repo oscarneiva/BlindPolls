@@ -82,14 +82,6 @@ public class Player : MonoBehaviour {
                 instancia_tiro();
                 checa_tiro();
             }
-
-            /*
-            //BOTAO PARA TESTES
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                
-            }
-            */
         }
 
         //TEM QUE FICAR NO FINAL DO GAME LOOP 
@@ -168,11 +160,20 @@ public class Player : MonoBehaviour {
         {
             tiro = false;
         }
+        else
+        {
+            tiro = true;
+        }
     }
 
     public void carrega_tiro()
     {
-        quant_tiros = 10;
+        if(quant_tiros < 15)
+        {
+            quant_tiros++;
+            checa_tiro();
+        }
+ 
     }
 
     public void checa_speed()
@@ -208,9 +209,9 @@ public class Player : MonoBehaviour {
     {
         if (!jump && (Input.GetKeyDown(KeyCode.Space)) && !fly)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 10000.0f));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 17500.0f));
             //gameObject.transform.Translate(0, 1.0f, 0);
-            gameObject.GetComponent<Rigidbody2D>().gravityScale = 20.0f;
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 40.0f;
             jump = true;
             checa_animacao();
         }
@@ -251,6 +252,12 @@ public class Player : MonoBehaviour {
             gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.00001f;
             gameObject.transform.Translate(0, 0.3f, 0);
             jump = false;
+        }
+
+        if(collision.gameObject.tag == "cabeca")
+        {
+            collision.gameObject.SendMessage("acertou");
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 8000.0f));
         }
 
         if(collision.gameObject.tag == "Finish_left")

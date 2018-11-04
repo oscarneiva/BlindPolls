@@ -6,8 +6,8 @@ public class Municao : MonoBehaviour {
 
     public bool olha_dir;
 
-    private float vel = 0.1f;
-    private float set = 1.0f;
+    private float vel = 10.0f;
+    private float set = 4.0f;
 
 	// Use this for initialization
 	void Start () {
