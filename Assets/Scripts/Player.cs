@@ -76,10 +76,12 @@ public class Player : MonoBehaviour {
         else
         {
             movimenta();
+            /*
             if (speed)
             {
                 checa_speed();
             }
+            */
             if (tiro)
             {
                 instancia_tiro();
@@ -201,7 +203,7 @@ public class Player : MonoBehaviour {
         }
  
     }
-
+    /*
     public void checa_speed()
     {
         tempo += Time.deltaTime;
@@ -218,7 +220,7 @@ public class Player : MonoBehaviour {
         speed = true;
         vel_pers_hor = vel_pers_hor * 2;
     }
-
+    */
     //DETECTA A AÇÃO DE USAR O ESPECIAL E, CASO HABILITADO, CHAMA
     public void special_pressed()
     {
@@ -236,6 +238,7 @@ public class Player : MonoBehaviour {
         if (!jump && (Input.GetKeyDown(KeyCode.Space)) && !fly)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            /*
             if (speed)
             {
                 gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 26000.0f));
@@ -243,10 +246,11 @@ public class Player : MonoBehaviour {
             }
             else
             {
-                gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 13000.0f));
+            */
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 13000.0f));
                 //gameObject.transform.Translate(0, 1.0f, 0);
-                gameObject.GetComponent<Rigidbody2D>().gravityScale = 30.0f;
-            }
+            gameObject.GetComponent<Rigidbody2D>().gravityScale = 30.0f;
+           // }
             jump = true;
             pe.SendMessage("checa");
             checa_animacao();

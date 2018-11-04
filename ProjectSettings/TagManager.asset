@@ -17,6 +17,7 @@ TagManager:
   - cabeca
   - pe
   - teto
+  - Enimies
   layers:
   - Default
   - TransparentFX
@@ -34,7 +35,7 @@ TagManager:
   - Sheep
   - Ground
   - Tiro
-  - 
+  - Lhama
   - 
   - 
   - 

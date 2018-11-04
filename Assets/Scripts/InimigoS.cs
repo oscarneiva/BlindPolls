@@ -17,11 +17,12 @@ public class InimigoS : MonoBehaviour
 	private Vector3 player_pos;
 	public bool podeMover = true;
 	private float cont;
+    public Animator animator;
 
-	// Use this for initialization
-	void Start()
+    // Use this for initialization
+    void Start()
 	{
-
+        animator = gameObject.GetComponent<Animator>();
 		player = GameObject.FindGameObjectWithTag("Player");
 		
 		if (gameObject.transform.position.x - player_pos.x > 0)
@@ -39,22 +40,24 @@ public class InimigoS : MonoBehaviour
 
 	// Update is called once per frame
 	void Update()
-	{
-		player_pos = player.transform.position;
-		if (podeMover){
-		
-			float vrd = RandomGenerate();
-		
-			if (esquerda)
-			{
-				transform.Translate(speed * vrd*Time.deltaTime, 0, 0);
-			}
-			else
-			{
-				transform.Translate(-speed * vrd*Time.deltaTime, 0, 0);
-			}
-		}
-		else
+    {
+        player_pos = player.transform.position;
+        if (podeMover)
+        {
+            float vrd = RandomGenerate();
+
+            if (esquerda)
+            {
+                animator.SetBool("esquerda", false);
+                transform.Translate(speed * vrd * Time.deltaTime, 0, 0);
+            }
+            else
+            {
+                animator.SetBool("esquerda", true);
+                transform.Translate(speed * vrd * Time.deltaTime, 0, 0);
+            }
+        }
+        else
 		{
 			cont += Time.deltaTime;
 			if (cont >= 2.0f)
@@ -89,7 +92,7 @@ public class InimigoS : MonoBehaviour
 	private float RandomGenerate()
 	{
 		float vl = Random.Range(1, 3);
-		float v2 = Random.Range(1, 10);
+		float v2 = Random.Range(6, 10);
 		int v3 = Random.Range(0, 100);
 		v2 = (v2/10f);
 		if (v3 <= 15)

@@ -17,15 +17,18 @@ public class Spawn : MonoBehaviour {
     public GameObject lhama;
     public GameObject direitaDrone, esquerdaDrone;
     private GameObject drone_correto;
+    private GameObject[] vetor_inimigo;
     //public GameObject lhama;
 
     // Use this for initialization
     void Start () {
-        
+    
     }
 	
 	// Update is called once per frame
 	void Update () {
+        vetor_inimigo = GameObject.FindGameObjectsWithTag("Inimigo");
+        count = vetor_inimigo.Length;
         tempo += Time.deltaTime;
         if (tempo >= wait)
         {
@@ -66,7 +69,7 @@ public class Spawn : MonoBehaviour {
         }
 
         GameObject novo_drone = Instantiate(sheep, posicao, drone.transform.rotation);
-        count++;
+        //count++;
     }
 
     public void cria_lhama()
@@ -86,7 +89,7 @@ public class Spawn : MonoBehaviour {
         }
 
         GameObject novo_drone = Instantiate(lhama, posicao, drone.transform.rotation);
-        count++;
+       // count++;
     }
 
     public void cria_drone()
@@ -108,6 +111,6 @@ public class Spawn : MonoBehaviour {
         }
 
         GameObject novo_drone = Instantiate(drone_correto, posicao, drone.transform.rotation);
-        count++;
+        //count++;
     }
 }

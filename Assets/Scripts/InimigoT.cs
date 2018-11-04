@@ -23,6 +23,16 @@ public class InimigoT : MonoBehaviour
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
         animator = gameObject.GetComponent<Animator>();
+        /*
+        if (player.transform.position.x - transform.position.x < 0. )
+        {
+            esquerda = true;
+        }
+        else
+        {
+            esquerda = false;
+        }
+        */
     }
 
 	// Update is called once per frame
@@ -60,13 +70,13 @@ public class InimigoT : MonoBehaviour
 		if (gameObject.transform.position.x - player_pos.x > 0)
 		{
 			esquerda = true;
-            animator.SetBool("left", true);
+            animator.SetBool("esquerda", true);
 		}
 
 		if (gameObject.transform.position.x - player_pos.x < 0)
 		{
 			esquerda = false;
-            animator.SetBool("left", false);
+            animator.SetBool("esquerda", false);
         }
 
 	}

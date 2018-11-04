@@ -32,7 +32,9 @@ public class Moeda : MonoBehaviour {
 
     public void destruir()
     {
+        
         GameObject controla = GameObject.FindGameObjectWithTag("MainCamera");
+        
         controla.SendMessage("destruiu");
         Destroy(gameObject);
     }

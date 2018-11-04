@@ -21,8 +21,9 @@ GameObject:
   - component: {fileID: 4021213575594472}
   - component: {fileID: 212629260777993858}
   - component: {fileID: 95602685490479888}
-  - component: {fileID: 61814730703277182}
   - component: {fileID: 114010604287750006}
+  - component: {fileID: 61579981176865094}
+  - component: {fileID: 50885327607753228}
   m_Layer: 12
   m_Name: Moeda
   m_TagString: Untagged
@@ -37,13 +38,33 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1172677358432842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.4321, y: 170.75212, z: 0}
+  m_LocalPosition: {x: 285.44473, y: 81.68694, z: 0}
   m_LocalScale: {x: 13, y: 13, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61814730703277182
+--- !u!50 &50885327607753228
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172677358432842}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &61579981176865094
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,9 +74,9 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.040282845, y: 0.13427728}
+  m_Offset: {x: -0.041540444, y: 0.16768539}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -66,7 +87,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5639606, y: 1.5908163}
+  m_Size: {x: 1.6530007, y: 1.6287248}
   m_EdgeRadius: 0
 --- !u!95 &95602685490479888
 Animator:
