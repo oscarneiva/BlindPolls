@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Spawn.cs" />
     <Compile Include="Assets\Scripts\SpawnPos.cs" />
     <Compile Include="Assets\Scripts\Speed_double.cs" />
+    <Compile Include="Assets\Scripts\StopAnimation.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/joaom/porcos/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>

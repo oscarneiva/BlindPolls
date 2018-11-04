@@ -402,6 +402,7 @@ public class Player : MonoBehaviour {
         destroi_inimigos();
         GameObject controla_moedas = GameObject.FindGameObjectWithTag("MainCamera");
         controla_moedas.SendMessage("GAME_OVER");
+        //anima.GetComponent.Stop("PORCO")
     }
 
 }
