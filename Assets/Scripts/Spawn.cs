@@ -18,6 +18,8 @@ public class Spawn : MonoBehaviour {
     public GameObject direitaDrone, esquerdaDrone;
     private GameObject drone_correto;
     private GameObject[] vetor_inimigo;
+
+    private bool andar = true;
     //public GameObject lhama;
 
     // Use this for initialization
@@ -32,7 +34,7 @@ public class Spawn : MonoBehaviour {
         tempo += Time.deltaTime;
         if (tempo >= wait)
         {
-            if (count < max)
+            if ((count < max) && andar)
             {
                 random = Random.Range(0, 3);
                 if(random == 0)
@@ -45,11 +47,16 @@ public class Spawn : MonoBehaviour {
                 }
                 else
                 {
-                    cria_lhama();
+                    //cria_lhama();
                 }
             }
             tempo = 0;
         }
+    }
+
+    public void parou()
+    {
+        andar = !andar;
     }
 
     public void cria_ovelha()

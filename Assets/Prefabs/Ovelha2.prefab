@@ -160,6 +160,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   podeMover: 1
   cabeca: {fileID: 0}
+  explosao: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 2}
 --- !u!114 &114813144283862146
 MonoBehaviour:
   m_ObjectHideFlags: 1

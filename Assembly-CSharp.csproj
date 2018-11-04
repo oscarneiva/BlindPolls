@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Pe.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\PlayerBondaryCollisions.cs" />
+    <Compile Include="Assets\Scripts\Poster.cs" />
     <Compile Include="Assets\Scripts\Shooting.cs" />
     <Compile Include="Assets\Scripts\Spawn.cs" />
     <Compile Include="Assets\Scripts\SpawnPos.cs" />

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    SpriteRenderer render;
+
     //ANIMATOR
     private Animator anima;
 
@@ -14,6 +16,7 @@ public class Player : MonoBehaviour {
     public GameObject pe;
     private GameObject teto;
     private GameObject ground;
+    private GameObject [] inimigos;
 
     //VARIAVEIS DE CONTROLE DE POSICIONAMENTO E MOVIMENTAÇÃO DO PLAYER
     public float lim_dir;
@@ -30,6 +33,9 @@ public class Player : MonoBehaviour {
     private bool speed;
     private bool olhando_dir;
     private bool move;
+    private bool dano = false;
+    private float conta_tempo_dano = 0;
+    private bool game_over = false;
 
     //VELOCIDADES USADAS
     public float vel_pers_hor;
@@ -53,6 +59,7 @@ public class Player : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        render = gameObject.GetComponent<SpriteRenderer>();
         anima = gameObject.GetComponent<Animator>();
         ground = GameObject.FindGameObjectWithTag("ground");
         teto = GameObject.FindGameObjectWithTag("teto");
@@ -69,35 +76,67 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        if (fly)
+        if (!game_over)
         {
-            especial();
-        }
-        else
-        {
-            movimenta();
-            /*
-            if (speed)
+            if (fly)
             {
-                checa_speed();
+                especial();
             }
-            */
-            if (tiro)
+            else
             {
-                instancia_tiro();
-                checa_tiro();
+                movimenta();
+
+                if (dano)
+                {
+                    conta_tempo_dano += Time.deltaTime;
+                    anima_dano();
+                }
+
+                if (tiro)
+                {
+                    instancia_tiro();
+                    checa_tiro();
+                }
             }
+
+            //TEM QUE FICAR NO FINAL DO GAME LOOP 
+            pos_player = gameObject.transform.position;
+
+            checa_teto();
         }
-
-        //TEM QUE FICAR NO FINAL DO GAME LOOP 
-        pos_player = gameObject.transform.position;
-
-        checa_teto();
+        
 
         //porta_dos_desesperados();
     }
 
-    
+    public void hp_up()
+    {
+        life++;
+    }
+
+    public void anima_dano()
+    {
+        if(conta_tempo_dano < 0.3f)
+        {
+            render.color = new Color(255, 0, 0);
+        }
+        else if (conta_tempo_dano < 0.7f)
+        {
+            render.color = new Color(255, 255, 0);
+        }
+        else if (conta_tempo_dano < 1.05f)
+        {
+            render.color = new Color(255, 0, 0);
+        }
+        else
+        {
+            render.color = new Color(255, 255, 255);
+            dano = false;
+            conta_tempo_dano = 0;
+        }
+    }
+
+    /*
     public void porta_dos_desesperados()
     {
         if(jump && (gameObject.GetComponent<Rigidbody2D>().velocity.y == 0)){
@@ -105,7 +144,32 @@ public class Player : MonoBehaviour {
             gameObject.transform.Translate(0, -1.0f, 0);
         }
     }
+    */
+
+    public void acha_inimigos()
+    {
+        inimigos = GameObject.FindGameObjectsWithTag("Inimigo");
+    }
     
+    public void para_inimigos()
+    {
+        for(int i = 0; i < inimigos.Length; i++)
+        {
+            inimigos[i].SendMessage("parou");
+        }
+        GameObject spam = GameObject.FindGameObjectWithTag("MainCamera");
+        spam.SendMessage("parou");
+    }
+
+    public void destroi_inimigos()
+    {
+        for (int i = 0; i < inimigos.Length; i++)
+        {
+            inimigos[i].SendMessage("destroi");
+        }
+        GameObject spam = GameObject.FindGameObjectWithTag("MainCamera");
+        spam.SendMessage("parou");
+    }
 
     public void checa_teto()
     {
@@ -160,8 +224,7 @@ public class Player : MonoBehaviour {
     {
         if(gameObject.transform.position.y < (ground.transform.position.y + 150.0f))
         {
-            print("aqui");
-            print(gameObject.transform.position.y);
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
             gameObject.transform.Translate(0, vel_fly*Time.deltaTime, 0);
         }
         else
@@ -169,11 +232,12 @@ public class Player : MonoBehaviour {
             if (tempo_especial > 1.0f)
             {
                 fly = false;
+               
                 checa_animacao();
                 //INSTANCIAR EFEITO DE ESPECIAL AQUI
-                //DESTRUIR TODOS OS INIMIGOS AQUI
+                destroi_inimigos();
                 gameObject.GetComponent<Rigidbody2D>().gravityScale = 9.8f;
-                inimigos_derrotados = 0;
+                hp_up();
             }
             else
             {
@@ -228,6 +292,8 @@ public class Player : MonoBehaviour {
         {
             fly = true;
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            acha_inimigos();
+            para_inimigos();
             checa_animacao();
         }
     }
@@ -328,10 +394,25 @@ public class Player : MonoBehaviour {
     public void hit()
     {
         print("LIFE = " + life);
-        if(life > 0)
+        if(life > 0 && !fly && !dano)
         {
             life--;
+            dano = true;
         }
+        if(life == 0)
+        {
+            anima.SetInteger("life", 0);
+            GAME_OVER();
+        }
+    }
+
+    public void GAME_OVER()
+    {
+        game_over = true;
+        acha_inimigos();
+        destroi_inimigos();
+        GameObject controla_moedas = GameObject.FindGameObjectWithTag("MainCamera");
+        controla_moedas.SendMessage("GAME_OVER");
     }
 
 }

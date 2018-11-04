@@ -32,12 +32,27 @@ public class Ammo : MonoBehaviour
 			     (gameObject.transform.position.x > (player_pos.x - 1.0f)))
 			{
 				parado = false;
-				gameObject.GetComponent<Rigidbody2D>().gravityScale = 0.2f;
+				gameObject.GetComponent<Rigidbody2D>().gravityScale = 9.8f;
 				transform.SetParent(null);
 				
-
 			}
 		}
 
 	}
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "ground")
+        {
+            Destroy(gameObject);
+        }
+
+        if(collision.gameObject.tag == "Player")
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.SendMessage("hit");
+            Destroy(gameObject);
+        }
+    }
+
 }

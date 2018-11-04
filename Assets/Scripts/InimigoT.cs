@@ -11,15 +11,17 @@ public class InimigoT : MonoBehaviour
 
 	public float speed = 3.0f;
 	public bool esquerda ;
+    private bool andar = true;
 	private GameObject player;
 	private Vector3 player_pos;
 	public Rigidbody2D inirb;
     public Animator animator;
 	public bool podeMover = true;
     public GameObject cabeca;
+    public GameObject explosao;
 
-	// Use this for initialization
-	void Start()
+    // Use this for initialization
+    void Start()
 	{
 		player = GameObject.FindGameObjectWithTag("Player");
         animator = gameObject.GetComponent<Animator>();
@@ -39,7 +41,7 @@ public class InimigoT : MonoBehaviour
 	void Update()
 	{
 		player_pos = player.transform.position;
-		if (podeMover)
+		if (podeMover && andar)
 		{
 			float vrd = RandomGenerate();
 			
@@ -95,8 +97,15 @@ public class InimigoT : MonoBehaviour
 		return vl;
 	}
 
+    public void parou()
+    {
+        andar = false;
+    }
+
     public void destroi()
     {
+        GameObject nova_explosao = Instantiate(explosao, gameObject.transform.position, explosao.transform.rotation);
+        Destroy(nova_explosao, 1.0f);
         Destroy(gameObject);
     }
 
